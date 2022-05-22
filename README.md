@@ -1,46 +1,64 @@
-# Getting Started with Create React App
+# Problem1
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tech Stack
 
-## Available Scripts
+Frontned: Reactjs with TypeScript
 
-In the project directory, you can run:
+Styling: styled-components
 
-### `npm start`
+## How to run locally?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+After extracting zip:
+- open problem1 folder in VS Code
+- in VS Code terminal run following command
+  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+npm install
+```
+after successful installation of all packages
+- run following command in VS Code terminal
+```bash
+npm start
+```
+you we'll see react app running in your browser successfully at `https://localhost:3000/`
 
-### `npm test`
+## Src folder structure
+```bash
+.
+├── app
+│   └── types.ts
+├── App.tsx
+├── components
+│   ├── Button.tsx
+│   ├── Container.tsx
+│   ├── DialogActionContainer.tsx
+│   ├── DialogAction.tsx
+│   ├── Dialog.tsx
+│   ├── GridItem.tsx
+│   ├── GridLayout.tsx
+│   ├── GridRow.tsx
+│   ├── Input.tsx
+│   └── Text.tsx
+├── index.tsx
+├── pages
+│   └── Home.tsx
+├── react-app-env.d.ts
+├── reportWebVitals.ts
+└── setupTests.ts
+```
+Folder's description-
+- app - contains global files/modules required for app
+- components - contains react components 
+- pages - contains main pages we see in browser when app is running
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Approach
+- Initial approach while completing this task is to destructure the problem into smaller ones, so thinking and solving it becomes more easy and efficient.
+- As react is used to complete this assignment, breaking the ui into smaller reusable components is the first approach taken by me.
+- To make given grid layout, I have used `flexbox`. So, it becomes very easy to change the related column (text) according action performed in the first column. Using `flexbox` also makes responsiveness easier.
+- Components and their purpose-
+    - GridLayout (display:flex) -  it's a container for GridRows
+    - GridRow (display:flex) -  it's a container for GridItems
+    - GridItem (display:flex) -  it's a container for child items in grid, here text and input buttons are used as children
+    - RowComponent -  it's wapper for each GridRow and contains it's own state so that mentioned action can be performed.
+    - AppearenceController -  it's wapper for actions in first column of each row and contains buttons to trigger events accordingly.
